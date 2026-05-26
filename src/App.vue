@@ -19,11 +19,32 @@ const itemProducto = {
           <h3 class="category">{{ producto.categoria }}</h3>
         </template>
         <template #body>
-          <p class="price">Precio: {{ producto.precio }}</p>
-          <p class="stock">Stock: {{ producto.stock }}</p>
+          <button @click="toggleExpandir">
+            {{ expandida ? "Ver menos" : "Ver más" }}
+          </button>
+          <div class="info-producto" v-if="expandida">
+            <p class="price">Precio: {{ producto.precio }}</p>
+            <p class="stock">Stock: {{ producto.stock }}</p>
+          </div>
         </template>
         <template #footer>
           <button>Comprar Ahora</button>
+        </template>
+      </TarjetaProducto>
+      <!-- tarjeta sin footer -->
+      <TarjetaProducto>
+        <template #header>
+          <h2 class="title">{{ itemProducto.nombre }}</h2>
+          <h3 class="category">{{ itemProducto.categoria }}</h3>
+        </template>
+        <template #body>
+          <button @click="toggleExpandir">
+            {{ expandida ? "Ver menos" : "Ver más" }}
+          </button>
+          <div class="info-producto" v-if="expandida">
+            <p class="price">Precio: {{ itemProducto.precio }}</p>
+            <p class="stock">Stock: {{ itemProducto.stock }}</p>
+          </div>
         </template>
       </TarjetaProducto>
     </section>
@@ -72,5 +93,9 @@ button {
 }
 button:hover {
   background-color: #5a0000;
+}
+.info-producto {
+  margin-top: 1rem;
+  height: 100px;
 }
 </style>
