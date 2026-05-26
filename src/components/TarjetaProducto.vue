@@ -17,7 +17,7 @@ const toggleExpandir = () => {
     <section class="body">
       <slot
         name="body"
-        :expandida="expandida.value"
+        :expandida="expandida"
         :toggleExpandir="toggleExpandir"
       >
       </slot>

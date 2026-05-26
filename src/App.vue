@@ -2,29 +2,26 @@
 import { productos } from "./data/productos.js";
 import TarjetaProducto from "./components/TarjetaProducto.vue";
 
-const itemProducto = {
-  nombre: "Producto Destacado",
-  categoria: "Electrónica",
-  precio: "$99.99",
-  stock: 20,
-};
+const p1 = productos[0];
+const p2 = productos[1];
+const p3 = productos[2];
 </script>
 
 <template>
   <div class="base-layout">
     <section class="contain-cards">
-      <TarjetaProducto v-for="producto in productos" :key="producto.id">
+      <TarjetaProducto>
         <template #header>
-          <h2 class="title">{{ producto.nombre }}</h2>
-          <h3 class="category">{{ producto.categoria }}</h3>
+          <h2 class="title">{{ p1.nombre }}</h2>
+          <h3 class="category">{{ p1.categoria }}</h3>
         </template>
-        <template #body>
+        <template #body="{ expandida, toggleExpandir }">
           <button @click="toggleExpandir">
             {{ expandida ? "Ver menos" : "Ver más" }}
           </button>
           <div class="info-producto" v-if="expandida">
-            <p class="price">Precio: {{ producto.precio }}</p>
-            <p class="stock">Stock: {{ producto.stock }}</p>
+            <p class="price">Precio: {{ p1.precio }}</p>
+            <p class="stock">Stock: {{ p1.stock }}</p>
           </div>
         </template>
         <template #footer>
@@ -34,16 +31,31 @@ const itemProducto = {
       <!-- tarjeta sin footer -->
       <TarjetaProducto>
         <template #header>
-          <h2 class="title">{{ itemProducto.nombre }}</h2>
-          <h3 class="category">{{ itemProducto.categoria }}</h3>
+          <h2 class="title">{{ p2.nombre }}</h2>
+          <h3 class="category">{{ p2.categoria }}</h3>
         </template>
-        <template #body>
+        <template #body="{ expandida, toggleExpandir }">
           <button @click="toggleExpandir">
             {{ expandida ? "Ver menos" : "Ver más" }}
           </button>
           <div class="info-producto" v-if="expandida">
-            <p class="price">Precio: {{ itemProducto.precio }}</p>
-            <p class="stock">Stock: {{ itemProducto.stock }}</p>
+            <p class="price">Precio: {{ p2.precio }}</p>
+            <p class="stock">Stock: {{ p2.stock }}</p>
+          </div>
+        </template>
+      </TarjetaProducto>
+      <TarjetaProducto>
+        <template #header>
+          <h2 class="title">{{ p3.nombre }}</h2>
+          <h3 class="category">{{ p3.categoria }}</h3>
+        </template>
+        <template #body="{ expandida, toggleExpandir }">
+          <button @click="toggleExpandir">
+            {{ expandida ? "Ver menos" : "Ver más" }}
+          </button>
+          <div class="info-producto" v-if="expandida">
+            <p class="price">Precio: {{ p3.precio }}</p>
+            <p class="stock">Stock: {{ p3.stock }}</p>
           </div>
         </template>
       </TarjetaProducto>
@@ -62,6 +74,7 @@ const itemProducto = {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: flex-start;
     gap: 20px;
     padding: 2rem;
   }
