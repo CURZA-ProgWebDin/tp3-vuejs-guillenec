@@ -2,26 +2,24 @@
 import { ref } from "vue";
 
 //Estado para saber qué producto está expandido
-const productoExpandidoId = ref(null);
+// const productoExpandidoId = ref(false);
+const expandida = ref(false);
 
-const toggleExpandido = (id) => {
-  productoExpandidoId.value = productoExpandidoId.value === id ? null : id;
+const toggleExpandir = () => {
+  // productoExpandidoId.value = productoExpandidoId.value === id ? false : id;
+  expandida.value = !expandida.value;
 };
 </script>
 
 <template>
   <article class="tarjeta">
-    <slot name="header">
-      <span>Sin acciones disponibles</span>
-    </slot>
+    <slot name="header"> </slot>
     <section class="body">
       <slot
         name="body"
-        :producto="producto"
-        :expandida="productoExpandidoId == producto?.id"
-        :toggleExpandido="() => toggleExpandido(producto?.id)"
+        :expandida="expandida.value"
+        :toggleExpandir="toggleExpandir"
       >
-        <span>Sin acciones disponibles</span>
       </slot>
     </section>
     <section class="footer">
