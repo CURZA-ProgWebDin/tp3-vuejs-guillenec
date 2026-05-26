@@ -1,6 +1,6 @@
 <script setup>
 import { productos } from "./data/productos.js";
-import TarjetaProductos from "./components/TarjetaProductos.vue";
+import TarjetaProducto from "./components/TarjetaProducto.vue";
 
 const itemProducto = {
   nombre: "Producto Destacado",
@@ -13,7 +13,7 @@ const itemProducto = {
 <template>
   <div class="base-layout">
     <section class="contain-cards">
-      <TarjetaProductos v-for="producto in productos" :key="producto.id">
+      <TarjetaProducto v-for="producto in productos" :key="producto.id">
         <template #header>
           <h2 class="title">{{ producto.nombre }}</h2>
           <h3 class="category">{{ producto.categoria }}</h3>
@@ -25,7 +25,7 @@ const itemProducto = {
         <template #footer>
           <button>Comprar Ahora</button>
         </template>
-      </TarjetaProductos>
+      </TarjetaProducto>
     </section>
   </div>
 </template>
