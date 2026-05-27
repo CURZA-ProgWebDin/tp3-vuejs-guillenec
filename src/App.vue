@@ -1,6 +1,7 @@
 <script setup>
 import { productos } from "./data/productos.js";
 import TarjetaProducto from "./components/TarjetaProducto.vue";
+import ListaProductos from "./components/ListaProductos.vue";
 
 const p1 = productos[0];
 const p2 = productos[1];
@@ -60,11 +61,16 @@ const p3 = productos[2];
         </template>
       </TarjetaProducto>
     </section>
+    <section>
+      <h2 class="title">Lista de productos</h2>
+      <ListaProductos :productos="productos" />
+    </section>
   </div>
 </template>
 
 <style>
 .base-layout {
+  width: 100%;
   display: flex;
   flex-direction: column;
   min-height: 100vh;

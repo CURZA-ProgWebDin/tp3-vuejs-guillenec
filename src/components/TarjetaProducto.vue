@@ -15,11 +15,7 @@ const toggleExpandir = () => {
   <article class="tarjeta">
     <slot name="header"> </slot>
     <section class="body">
-      <slot
-        name="body"
-        :expandida="expandida"
-        :toggleExpandir="toggleExpandir"
-      >
+      <slot name="body" :expandida="expandida" :toggleExpandir="toggleExpandir">
       </slot>
     </section>
     <section class="footer">
