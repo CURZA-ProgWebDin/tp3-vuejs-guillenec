@@ -44,7 +44,6 @@ const componenteConKeepAlive = computed(() => tabs[tabConKeepAlive.value]);
         </KeepAlive>
       </article>
     </div>
-    <!-- Conviene usar KeepAlive cuando queres mantener estado local, cache y evitar recargas al volver a una vista; no conviene cuando queres liberar memoria o forzar que el componente reinicie sus datos en cada entrada. -->
   </section>
 </template>
 
